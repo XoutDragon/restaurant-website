@@ -1,10 +1,11 @@
-import create from 'zustand';
+import { ReactElement } from 'react';
+import { create } from 'zustand';
 
 type ClosedStore = {
 	isOpen: boolean;
 	onOpen: () => void;
 	onClose: () => void;
-	text?: string;
+	text?: ReactElement | string;
 };
 
 export const useClosed = create<ClosedStore>((set) => ({

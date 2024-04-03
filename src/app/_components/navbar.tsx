@@ -58,9 +58,13 @@ const Navbar = () => {
 		}
 
 		if (10 < times[date.getDay()].open) {
-			closed.text = `We are open today at ${
-				times[date.getDay()].open
-			} am. We are closed today at ${times[date.getDay()].close - 12} pm.`;
+			closed.text = (
+				<>
+					We are closed right now. <br />
+					Open time: {times[date.getDay()].open}:00 a.m. <br />
+					Close time: {times[date.getDay()].close - 12}:00 p.m.
+				</>
+			);
 			closed.onOpen();
 			return;
 		}

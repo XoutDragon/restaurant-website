@@ -5,6 +5,7 @@ import './globals.css';
 import { ModalProvider } from '@/components/providers/modal-provider';
 
 import Navbar from './_components/navbar';
+import { cn } from '@/lib/utils';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -31,7 +32,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={inter.className}>
+			<body className={cn('h-full', inter.style)}>
 				<ModalProvider />
 				{children}
 			</body>

@@ -3,8 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 
 import { ModalProvider } from '@/components/providers/modal-provider';
-
-import Navbar from './_components/navbar';
+import { ConvexClientProvider } from '@/components/providers/convex-provider';
 import { cn } from '@/lib/utils';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -33,8 +32,11 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body className={cn('h-full', inter.style)}>
-				<ModalProvider />
-				{children}
+				<ConvexClientProvider>
+					<ModalProvider />
+
+					{children}
+				</ConvexClientProvider>
 			</body>
 		</html>
 	);

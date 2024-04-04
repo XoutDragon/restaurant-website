@@ -57,7 +57,7 @@ const Navbar = () => {
 			return;
 		}
 
-		if (10 < times[date.getDay()].open) {
+		if (date.getHours() < times[date.getDay()].open) {
 			closed.text = (
 				<>
 					We are closed right now. <br />

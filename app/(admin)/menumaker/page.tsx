@@ -85,7 +85,11 @@ const MenuMaker = () => {
 				<div className='flex-col items-center justify-center space-y-10'>
 					<h2 className='text-center text-slate-900'>Add Item to Menu</h2>
 					<form className='grid grid-flow-row gap-4 bg-gray-100 p-10 rounded-lg'>
-						<Select>
+						<Select
+							onValueChange={(e) => {
+								setForm({ ...form, category: e });
+							}}
+						>
 							<SelectTrigger>
 								<SelectValue placeholder='Select a category'>
 									{form.category}

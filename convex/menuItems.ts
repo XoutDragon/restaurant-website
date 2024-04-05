@@ -87,14 +87,14 @@ export const editMenuItem = mutation({
 	},
 });
 
-export const getMenuItemsByCategory = query({
+export const getMenuItems = query({
 	args: {
 		category: v.string(),
 	},
 	handler: async (ctx, args) => {
 		const menuItems = await ctx.db
 			.query('menuItem')
-			.withIndex('category', (q) => q.eq('category', args.category))
+			.withIndex('category')
 			.filter((q) => q.eq(q.field('category'), args.category))
 			.collect();
 
